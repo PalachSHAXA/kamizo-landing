@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { Quote } from 'lucide-react';
 
 export default function Results() {
   const { t } = useLanguage();
@@ -11,10 +12,10 @@ export default function Results() {
   ];
 
   return (
-    <section className="py-24">
-      <div className="container-main">
+    <section className="section">
+      <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -24,20 +25,20 @@ export default function Results() {
         </motion.div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-16">
+        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-20">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               className="text-center"
             >
-              <div className="text-4xl md:text-5xl font-semibold text-neutral-900 tracking-tight mb-1">
+              <div className="text-5xl md:text-6xl font-semibold text-zinc-900 tracking-tight mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-neutral-500">
+              <div className="text-sm text-zinc-500">
                 {stat.label}
               </div>
             </motion.div>
@@ -46,23 +47,35 @@ export default function Results() {
 
         {/* Testimonial */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="glass-card p-8 text-center">
-            <p className="text-lg text-neutral-700 leading-relaxed mb-6">
+          <div className="glass-card p-10 relative">
+            {/* Quote icon */}
+            <div className="absolute -top-4 left-10">
+              <div className="w-8 h-8 rounded-xl bg-orange-500 flex items-center justify-center">
+                <Quote className="w-4 h-4 text-white" />
+              </div>
+            </div>
+
+            <p className="text-xl text-zinc-700 leading-relaxed mb-8 mt-2">
               "{t.results.testimonial}"
             </p>
 
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center text-neutral-600 font-semibold text-sm">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-zinc-100 to-zinc-200 rounded-full flex items-center justify-center text-zinc-600 font-semibold">
                 А
               </div>
-              <div className="text-sm text-neutral-600 font-medium">
-                {t.results.author}
+              <div>
+                <div className="font-medium text-zinc-900">
+                  {t.results.author}
+                </div>
+                <div className="text-sm text-zinc-500">
+                  Директор УК
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MessageSquare, Cog, Zap } from 'lucide-react';
+
+const stepIcons = [MessageSquare, Cog, Zap];
 
 export default function HowItWorks() {
   const { t } = useLanguage();
@@ -24,10 +26,10 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-24 section-subtle">
-      <div className="container-main">
+    <section className="section">
+      <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -36,45 +38,54 @@ export default function HowItWorks() {
           <h2 className="text-heading">{t.howItWorks.title}</h2>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex gap-6 mb-8 last:mb-0"
-            >
-              {/* Number */}
-              <div className="flex flex-col items-center">
-                <div className="w-10 h-10 bg-neutral-900 rounded-full flex items-center justify-center text-white text-sm font-semibold">
-                  {step.number}
-                </div>
-                {index < steps.length - 1 && (
-                  <div className="w-px h-full bg-neutral-200 mt-3" />
-                )}
-              </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            {steps.map((step, index) => {
+              const Icon = stepIcons[index];
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="relative"
+                >
+                  {/* Connector line */}
+                  {index < steps.length - 1 && (
+                    <div className="hidden md:block absolute top-8 left-[calc(50%+40px)] w-[calc(100%-80px)] h-px bg-zinc-200" />
+                  )}
 
-              {/* Content */}
-              <div className="flex-1 pb-8">
-                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">
-                  {step.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                  <div className="text-center">
+                    {/* Number badge */}
+                    <div className="relative inline-flex mb-6">
+                      <div className="w-16 h-16 rounded-2xl bg-zinc-900 flex items-center justify-center shadow-xl shadow-zinc-900/20">
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                      <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-orange-500 text-white text-xs font-semibold flex items-center justify-center">
+                        {step.number}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg font-semibold text-zinc-900 mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-body leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center mt-16"
         >
           <a href="#contact" className="btn-primary">
             {t.howItWorks.cta}
