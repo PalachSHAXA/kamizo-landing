@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function SocialProof() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const stats = [
     { value: t.social.stat1, label: t.social.stat1Label },
@@ -10,67 +10,69 @@ export default function SocialProof() {
     { value: t.social.stat3, label: t.social.stat3Label },
   ];
 
-  // Real-looking client companies
+  // Client companies - monochrome minimal style
   const clients = [
-    { name: 'Tashkent City Residence', abbr: 'TC' },
+    { name: 'Tashkent City', abbr: 'TC' },
     { name: 'Mirabad Plaza', abbr: 'MP' },
     { name: 'Navruz Complex', abbr: 'NC' },
-    { name: 'Green Park Towers', abbr: 'GP' },
+    { name: 'Green Park', abbr: 'GP' },
     { name: 'Ideal House', abbr: 'IH' },
     { name: 'Sergeli Mega', abbr: 'SM' },
+    { name: 'Orient Tower', abbr: 'OT' },
+    { name: 'Silk Road', abbr: 'SR' },
   ];
 
   return (
-    <section className="py-16 md:py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-50/50 to-transparent" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
+    <section className="py-20 border-y border-neutral-100">
+      <div className="container-main">
+        {/* Clients */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center text-gray-400 text-sm font-medium uppercase tracking-wider mb-10"
+          className="text-center mb-12"
         >
-          {t.social.title}
-        </motion.p>
+          <p className="text-label mb-8">
+            {language === 'ru' ? 'Нам доверяют' : 'Bizga ishonishadi'}
+          </p>
 
-        {/* Client Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-14"
-        >
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className="glass-card flex items-center gap-3 px-5 py-3 rounded-xl card-hover cursor-default"
-            >
-              <div className="w-10 h-10 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                <span className="font-bold text-gray-600 text-sm">{client.abbr}</span>
-              </div>
-              <span className="font-medium text-gray-700 text-sm hidden sm:block">{client.name}</span>
-            </div>
-          ))}
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {clients.map((client, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="flex items-center gap-2 text-neutral-400 hover:text-neutral-600 transition-colors"
+              >
+                <span className="w-8 h-8 bg-neutral-100 rounded-lg flex items-center justify-center text-xs font-semibold text-neutral-500">
+                  {client.abbr}
+                </span>
+                <span className="hidden sm:block text-sm font-medium">{client.name}</span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
+
+        {/* Divider */}
+        <div className="divider my-12" />
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-6 md:gap-16"
+          className="flex flex-wrap items-center justify-center gap-12 md:gap-20"
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-semibold text-gray-900 mb-1">
+              <div className="text-4xl md:text-5xl font-semibold text-neutral-900 tracking-tight">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-400 font-medium">
+              <div className="text-sm text-neutral-500 mt-1">
                 {stat.label}
               </div>
             </div>

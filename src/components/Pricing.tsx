@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { Check, Sparkles } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 export default function Pricing() {
   const { t } = useLanguage();
@@ -9,88 +9,79 @@ export default function Pricing() {
     {
       key: 'start',
       data: t.pricing.start,
-      popular: false,
+      featured: false,
     },
     {
       key: 'business',
       data: t.pricing.business,
-      popular: true,
+      featured: true,
     },
     {
       key: 'premium',
       data: t.pricing.premium,
-      popular: false,
+      featured: false,
     },
   ];
 
   return (
-    <section id="pricing" className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-24">
+      <div className="container-main">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
-            {t.pricing.title}
-          </h2>
+          <h2 className="text-heading">{t.pricing.title}</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto mb-10">
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.key}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-2xl p-6 ${
-                plan.popular
-                  ? 'bg-[#1a1a2e] text-white ring-2 ring-orange-500 md:scale-105'
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className={`rounded-2xl p-6 ${
+                plan.featured
+                  ? 'bg-neutral-900 text-white ring-2 ring-neutral-900'
                   : 'glass-card'
               }`}
             >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <div className="flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg shadow-orange-500/30">
-                    <Sparkles size={12} />
-                    {t.pricing.popular}
-                  </div>
+              {/* Badge */}
+              {plan.featured && (
+                <div className="text-label text-orange-400 mb-4">
+                  {t.pricing.popular}
                 </div>
               )}
 
-              <div className="text-center mb-5">
-                <h3 className={`text-lg font-semibold mb-1 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+              <div className="mb-6">
+                <h3 className={`text-lg font-semibold mb-1 ${plan.featured ? 'text-white' : 'text-neutral-900'}`}>
                   {plan.data.name}
                 </h3>
-                <p className={`text-xs ${plan.popular ? 'text-gray-400' : 'text-gray-400'}`}>
+                <p className={`text-sm ${plan.featured ? 'text-neutral-400' : 'text-neutral-500'}`}>
                   {plan.data.limit}
                 </p>
               </div>
 
-              <div className="text-center mb-6">
-                <div className={`text-3xl font-semibold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+              <div className="mb-6">
+                <div className={`text-3xl font-semibold ${plan.featured ? 'text-white' : 'text-neutral-900'}`}>
                   {plan.data.price}
                 </div>
                 {plan.data.currency && (
-                  <div className={`text-xs ${plan.popular ? 'text-gray-400' : 'text-gray-400'}`}>
+                  <div className={`text-sm ${plan.featured ? 'text-neutral-400' : 'text-neutral-500'}`}>
                     {plan.data.currency}
                   </div>
                 )}
               </div>
 
-              <ul className="space-y-2.5 mb-6">
+              <ul className="space-y-3 mb-6">
                 {plan.data.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-2.5">
-                    <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${
-                      plan.popular ? 'bg-orange-500' : 'bg-green-50'
-                    }`}>
-                      <Check className={`w-2.5 h-2.5 ${plan.popular ? 'text-white' : 'text-green-500'}`} />
-                    </div>
-                    <span className={`text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <li key={idx} className="flex items-start gap-2">
+                    <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${plan.featured ? 'text-orange-400' : 'text-neutral-400'}`} />
+                    <span className={`text-sm ${plan.featured ? 'text-neutral-300' : 'text-neutral-600'}`}>
                       {feature}
                     </span>
                   </li>
@@ -99,10 +90,10 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`block text-center py-2.5 px-5 rounded-xl text-sm font-medium transition-all ${
-                  plan.popular
-                    ? 'btn-primary text-white'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                className={`block text-center py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  plan.featured
+                    ? 'bg-white text-neutral-900 hover:bg-neutral-100'
+                    : 'bg-neutral-100 text-neutral-900 hover:bg-neutral-200'
                 }`}
               >
                 {plan.data.cta}
@@ -117,14 +108,14 @@ export default function Pricing() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400"
+          className="flex flex-wrap items-center justify-center gap-6 text-sm text-neutral-500"
         >
           <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+            <span className="w-1 h-1 bg-green-500 rounded-full" />
             {t.pricing.note1}
           </span>
           <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
+            <span className="w-1 h-1 bg-green-500 rounded-full" />
             {t.pricing.note2}
           </span>
         </motion.div>
