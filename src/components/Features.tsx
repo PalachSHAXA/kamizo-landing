@@ -42,17 +42,19 @@ export default function Features() {
   const activeFeature = features.find((f) => f.key === activeTab);
 
   return (
-    <section id="features" className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
+    <section id="features" className="py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 md:mb-16"
+          className="text-center mb-12"
         >
-          {t.features.title}
-        </motion.h2>
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">
+            {t.features.title}
+          </h2>
+        </motion.div>
 
         {/* Tabs */}
         <motion.div
@@ -60,7 +62,7 @@ export default function Features() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex overflow-x-auto pb-4 mb-8 md:mb-12 gap-2 md:gap-3 scrollbar-hide md:flex-wrap md:justify-center"
+          className="flex overflow-x-auto pb-4 mb-10 gap-2 scrollbar-hide md:flex-wrap md:justify-center"
         >
           {features.map((feature) => {
             const Icon = featureIcons[feature.key as keyof typeof featureIcons];
@@ -70,13 +72,13 @@ export default function Features() {
               <button
                 key={feature.key}
                 onClick={() => setActiveTab(feature.key)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium whitespace-nowrap transition-all ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
                   isActive
-                    ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/25'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'btn-primary text-white'
+                    : 'bg-white/80 text-gray-600 hover:bg-white border border-gray-100'
                 }`}
               >
-                <Icon size={18} />
+                <Icon size={16} />
                 {feature.data.title}
               </button>
             );
@@ -96,22 +98,22 @@ export default function Features() {
             >
               {/* Feature List */}
               <div className="order-2 md:order-1">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                   {activeFeature.data.title}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-3">
                   {activeFeature.data.items.map((item, index) => (
                     <motion.li
                       key={index}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       className="flex items-start gap-3"
                     >
-                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-4 h-4 text-green-500" />
+                      <div className="w-5 h-5 bg-green-50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-green-500" />
                       </div>
-                      <span className="text-gray-700 text-lg">{item}</span>
+                      <span className="text-gray-600 text-sm">{item}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -119,17 +121,22 @@ export default function Features() {
 
               {/* Feature Visual */}
               <div className="order-1 md:order-2">
-                <div className="glass rounded-2xl p-3 shadow-xl">
-                  <div className="bg-gray-900 rounded-xl overflow-hidden">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 flex items-center justify-center">
+                <div className="glass-card rounded-2xl p-2">
+                  <div className="bg-[#1a1a2e] rounded-xl overflow-hidden">
+                    <div className="aspect-[4/3] p-6 flex items-center justify-center">
                       {(() => {
                         const Icon = featureIcons[activeTab as keyof typeof featureIcons];
                         return (
                           <div className="text-center">
-                            <div className="w-24 h-24 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center mb-4">
-                              <Icon className="w-12 h-12 text-orange-500" />
-                            </div>
-                            <div className="text-gray-400 text-lg">
+                            <motion.div
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={{ duration: 0.3 }}
+                              className="w-20 h-20 mx-auto bg-gradient-to-br from-orange-500/20 to-orange-600/10 rounded-2xl flex items-center justify-center mb-4 border border-orange-500/20"
+                            >
+                              <Icon className="w-10 h-10 text-orange-500" />
+                            </motion.div>
+                            <div className="text-gray-400 text-sm font-medium">
                               {activeFeature.data.title}
                             </div>
                           </div>

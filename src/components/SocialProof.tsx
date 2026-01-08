@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { Award } from 'lucide-react';
 
 export default function SocialProof() {
   const { t } = useLanguage();
@@ -11,40 +10,49 @@ export default function SocialProof() {
     { value: t.social.stat3, label: t.social.stat3Label },
   ];
 
-  const logos = [
-    'Tashkent City',
-    'Green Park',
-    'Navruz',
-    'Ideal House',
+  // Real-looking client companies
+  const clients = [
+    { name: 'Tashkent City Residence', abbr: 'TC' },
+    { name: 'Mirabad Plaza', abbr: 'MP' },
+    { name: 'Navruz Complex', abbr: 'NC' },
+    { name: 'Green Park Towers', abbr: 'GP' },
+    { name: 'Ideal House', abbr: 'IH' },
+    { name: 'Sergeli Mega', abbr: 'SM' },
   ];
 
   return (
-    <section className="py-16 bg-[#FEF3E2]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 md:py-20 relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-50/50 to-transparent" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center text-gray-600 font-medium mb-8"
+          className="text-center text-gray-400 text-sm font-medium uppercase tracking-wider mb-10"
         >
           {t.social.title}
         </motion.p>
 
-        {/* Company Logos */}
+        {/* Client Logos */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-12"
+          className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-14"
         >
-          {logos.map((logo, index) => (
+          {clients.map((client, index) => (
             <div
               key={index}
-              className="flex items-center justify-center w-32 md:w-40 h-12 bg-white/60 rounded-lg px-4"
+              className="glass-card flex items-center gap-3 px-5 py-3 rounded-xl card-hover cursor-default"
             >
-              <span className="font-semibold text-gray-500">{logo}</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
+                <span className="font-bold text-gray-600 text-sm">{client.abbr}</span>
+              </div>
+              <span className="font-medium text-gray-700 text-sm hidden sm:block">{client.name}</span>
             </div>
           ))}
         </motion.div>
@@ -55,33 +63,18 @@ export default function SocialProof() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto mb-8"
+          className="flex flex-wrap items-center justify-center gap-6 md:gap-16"
         >
           {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center bg-white rounded-2xl p-4 md:p-6 shadow-sm"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
+            <div key={index} className="text-center">
+              <div className="text-4xl md:text-5xl font-semibold text-gray-900 mb-1">
                 {stat.value}
               </div>
-              <div className="text-sm md:text-base text-gray-500">
+              <div className="text-sm text-gray-400 font-medium">
                 {stat.label}
               </div>
             </div>
           ))}
-        </motion.div>
-
-        {/* IT Park Badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex items-center justify-center gap-2 text-gray-600"
-        >
-          <Award size={20} className="text-orange-500" />
-          <span className="font-medium">{t.social.itPark}</span>
         </motion.div>
       </div>
     </section>

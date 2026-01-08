@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { Send, MessageCircle, Phone } from 'lucide-react';
+import { ArrowRight, MessageCircle, Phone, Check } from 'lucide-react';
 
 export default function ContactCTA() {
   const { language, t } = useLanguage();
@@ -16,54 +16,51 @@ export default function ContactCTA() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
-
     setIsSubmitting(false);
     setSubmitted(true);
     setFormData({ name: '', phone: '', houses: '' });
-
-    // Reset submitted state after 3 seconds
     setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-xl mx-auto"
         >
-          <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+          <div className="glass-card rounded-2xl p-8 md:p-10 relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl" />
 
-            <div className="relative z-10">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-                {t.cta.title}
-              </h2>
-              <p className="text-white/90 text-lg mb-8">
-                {t.cta.subtitle}
-              </p>
+            <div className="relative">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-3">
+                  {t.cta.title}
+                </h2>
+                <p className="text-gray-500 text-sm">
+                  {t.cta.subtitle}
+                </p>
+              </div>
 
               {submitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-white/20 rounded-2xl p-8 backdrop-blur-sm"
+                  className="text-center py-8"
                 >
-                  <div className="w-16 h-16 mx-auto bg-white rounded-full flex items-center justify-center mb-4">
-                    <Send className="w-8 h-8 text-orange-500" />
+                  <div className="w-14 h-14 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-4">
+                    <Check className="w-7 h-7 text-green-500" />
                   </div>
-                  <p className="text-white text-xl font-semibold">
+                  <p className="text-gray-900 font-medium text-lg">
                     {language === 'ru' ? 'Заявка отправлена!' : 'Ariza yuborildi!'}
                   </p>
-                  <p className="text-white/80 mt-2">
+                  <p className="text-gray-400 text-sm mt-1">
                     {language === 'ru' ? 'Мы свяжемся с вами в ближайшее время' : 'Tez orada siz bilan bog\'lanamiz'}
                   </p>
                 </motion.div>
@@ -75,7 +72,7 @@ export default function ContactCTA() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="w-full px-5 py-4 rounded-xl bg-white/90 placeholder-gray-500 text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-gray-100 placeholder-gray-400 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                   />
                   <input
                     type="tel"
@@ -83,49 +80,49 @@ export default function ContactCTA() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
-                    className="w-full px-5 py-4 rounded-xl bg-white/90 placeholder-gray-500 text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-gray-100 placeholder-gray-400 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                   />
                   <input
                     type="text"
                     placeholder={t.cta.form.houses}
                     value={formData.houses}
                     onChange={(e) => setFormData({ ...formData, houses: e.target.value })}
-                    className="w-full px-5 py-4 rounded-xl bg-white/90 placeholder-gray-500 text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-white"
+                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-gray-100 placeholder-gray-400 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                   />
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gray-900 hover:bg-gray-800 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
+                    className="w-full btn-primary text-white px-6 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2 disabled:opacity-70"
                   >
                     {isSubmitting ? (
-                      <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     ) : (
                       <>
                         {t.cta.form.submit}
-                        <Send size={20} />
+                        <ArrowRight size={18} />
                       </>
                     )}
                   </button>
                 </form>
               )}
 
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <p className="text-white/80 mb-4">{t.cta.or}</p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="mt-8 pt-6 border-t border-gray-100">
+                <p className="text-gray-400 text-xs text-center mb-4">{t.cta.or}</p>
+                <div className="flex items-center justify-center gap-3">
                   <a
                     href="https://t.me/kamizo_uz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white px-5 py-3 rounded-xl font-medium transition-all"
+                    className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 text-gray-700 px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
                   >
-                    <MessageCircle size={20} />
-                    {t.cta.telegram}
+                    <MessageCircle size={16} />
+                    Telegram
                   </a>
                   <a
                     href="tel:+998901234567"
-                    className="flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white px-5 py-3 rounded-xl font-medium transition-all"
+                    className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 text-gray-700 px-4 py-2.5 rounded-lg text-sm font-medium transition-all"
                   >
-                    <Phone size={20} />
+                    <Phone size={16} />
                     +998 90 123 45 67
                   </a>
                 </div>
