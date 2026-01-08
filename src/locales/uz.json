@@ -1,0 +1,332 @@
+{
+  "nav": {
+    "features": "Imkoniyatlar",
+    "pricing": "Tariflar",
+    "faq": "FAQ",
+    "login": "Kirish",
+    "demo": "Demo olish"
+  },
+  "hero": {
+    "title": "Uylarni oson boshqaring.",
+    "subtitle": "Aholilar mamnun.",
+    "description": "Boshqaruv kompaniyalari uchun CRM-ekotizim: arizalar, yig'ilishlar, chatlar, nazorat — bir joyda.",
+    "watchDemo": "Demo ko'rish",
+    "tryFree": "Bepul sinab ko'rish",
+    "benefit1": "14 kun bepul",
+    "benefit2": "Siz uchun sozlaymiz",
+    "benefit3": "O'rgatamiz"
+  },
+  "social": {
+    "title": "Boshqaruv kompaniyalari bizga ishonadi",
+    "stat1": "50+",
+    "stat1Label": "BK",
+    "stat2": "150+",
+    "stat2Label": "uylar",
+    "stat3": "25,000+",
+    "stat3Label": "aholilar",
+    "itPark": "IT Park Uzbekistan rezidenti"
+  },
+  "problem": {
+    "title": "Tanish vaziyatmi?",
+    "problems": [
+      {
+        "problem": "Aholilar qo'ng'iroq qiladi: \"Santexnik qayerda?!\"",
+        "solution": "Ijrochi arizani darhol oladi, aholi holatni ilovada ko'radi"
+      },
+      {
+        "problem": "Arizalar jurnallarda va Excelda yo'qoladi",
+        "solution": "Hammasi bir tizimda, hech narsa yo'qolmaydi"
+      },
+      {
+        "problem": "Yig'ilishlar = qog'ozlar, imzolar, kvorum yo'q",
+        "solution": "Yuridik kuchga ega elektron ovoz berish"
+      },
+      {
+        "problem": "Santexnik nima qilayotganini bilmaysiz",
+        "solution": "Ish taymeri, GPS, aholilardan reyting"
+      },
+      {
+        "problem": "\"Pullarim qayerga ketayapti?!\" — aholilar shikoyat qiladi",
+        "solution": "Shaffoflik: aholi hamma narsani ilovada ko'radi"
+      }
+    ]
+  },
+  "forWho": {
+    "title": "Bitta tizim — hammaga foyda",
+    "uk": {
+      "title": "BK uchun",
+      "features": [
+        "Hamma narsani nazorat qilish",
+        "Rutin avtomatlashtirish",
+        "1 bosishda hisobotlar",
+        "Kamroq nizolar"
+      ]
+    },
+    "residents": {
+      "title": "Aholilar uchun",
+      "features": [
+        "30 soniyada arizalar",
+        "Onlayn holat",
+        "Telefondan ovoz berish",
+        "BK bilan chat",
+        "Mehmonlar uchun QR"
+      ]
+    },
+    "staff": {
+      "title": "Xodimlar uchun",
+      "features": [
+        "Aniq vazifalar",
+        "Adolatli reyting",
+        "Qulay ilova"
+      ]
+    }
+  },
+  "features": {
+    "title": "Kerakli hamma narsa — bir joyda",
+    "requests": {
+      "title": "Arizalar",
+      "items": [
+        "Aholi 30 soniyada yaratadi",
+        "Mutaxassislikka qarab avtomatik tayinlash",
+        "Ustuvorliklar: oddiy → shoshilinch → avariya",
+        "Ijrochining ish taymeri",
+        "Aholidan sifat bahosi",
+        "Barcha arizalar tarixi"
+      ]
+    },
+    "meetings": {
+      "title": "Mulkdorlar yig'ilishlari",
+      "items": [
+        "Elektron ovoz berish",
+        "Yuridik kuch (OTP-tekshiruv)",
+        "Avtomatik kvorum hisoblash",
+        "Maydonga qarab ovoz og'irligi (m²)",
+        "Word formatida bayonnoma yaratish",
+        "Elektron imzo"
+      ]
+    },
+    "communications": {
+      "title": "Kommunikatsiyalar",
+      "items": [
+        "Chatlar: uy → podyezd → qavat",
+        "Maqsadli e'lonlar",
+        "Push-bildirishnomalar",
+        "@eslatmalar va javoblar",
+        "O'qilganlik holati"
+      ]
+    },
+    "staff": {
+      "title": "Xodimlarni nazorat qilish",
+      "items": [
+        "9 ta mutaxassislik (santexnik, elektrik...)",
+        "To'xtatishli ish taymeri",
+        "Aholilardan reyting",
+        "Hamkasblardan reyting (10 mezon)",
+        "Yuklanish va samaradorlik",
+        "Nishonlar va gamifikatsiya"
+      ]
+    },
+    "guest": {
+      "title": "Mehmon kirishi",
+      "items": [
+        "Mehmonlar, kuryerlar, taksi uchun QR-kod",
+        "Bir martalik / bir kunlik / bir haftalik",
+        "Qo'riqchi kirish joyida skanerlaydi",
+        "Aholiga xabar: \"Mehmoningiz keldi\"",
+        "Kodni bekor qilish imkoniyati"
+      ]
+    },
+    "carSearch": {
+      "title": "Avtomobil qidirish",
+      "items": [
+        "Raqam kiritdi — egasini topdi",
+        "Chat yoki qo'ng'iroq orqali aloqa",
+        "2 daqiqada nizolarni hal qilish"
+      ]
+    },
+    "analytics": {
+      "title": "Tahlil va hisobotlar",
+      "items": [
+        "Real vaqtda Dashboard",
+        "Uylar va xodimlar reytingi",
+        "Excel / PDF ga eksport",
+        "Tekshiruv organlari uchun hisobotlar"
+      ]
+    },
+    "mobile": {
+      "title": "Mobil ilova",
+      "items": [
+        "Aholilar uchun: iOS + Android",
+        "Xodimlar uchun: arizalarni qabul qilish va bajarish",
+        "Push-bildirishnomalar",
+        "Yomon internet bilan ham ishlaydi"
+      ]
+    }
+  },
+  "howItWorks": {
+    "title": "3 kunda ishga tushirish",
+    "step1": {
+      "title": "Ariza qoldirasiz",
+      "description": "15 daqiqada demo ko'rsatamiz"
+    },
+    "step2": {
+      "title": "Siz uchun sozlaymiz",
+      "description": "Uylarni yuklaymiz, aholilarni import qilamiz, jamoani o'rgatamiz"
+    },
+    "step3": {
+      "title": "Tinch ishlaysiz",
+      "description": "Tizim o'zi eslatadi, hisoblaydi, nazorat qiladi"
+    },
+    "cta": "Demo uchun ariza qoldirish"
+  },
+  "results": {
+    "title": "Mijozlarimiz natijalari",
+    "stat1": "+35%",
+    "stat1Label": "to'lovlar yig'ilishi",
+    "stat2": "-70%",
+    "stat2Label": "rutin uchun vaqt",
+    "stat3": "4.7",
+    "stat3Label": "BK reytingi",
+    "testimonial": "Kamizo dan oldin Excelga kuniga 4 soat sarflardim. Endi — 30 daqiqa. Qolgan vaqt — biznesni rivojlantirishga.",
+    "author": "Alisher K., BK direktori (12 uy)"
+  },
+  "comparison": {
+    "title": "Taqqoslash",
+    "without": "Kamizo siz",
+    "with": "Kamizo bilan",
+    "items": [
+      {
+        "without": "Jurnaldagi arizalar yo'qoladi",
+        "with": "Tizimdagi arizalar — hech narsa yo'qolmaydi"
+      },
+      {
+        "without": "24/7 qo'ng'iroqlar \"Santexnik qayerda?!\"",
+        "with": "Ilovada chat, onlayn holat"
+      },
+      {
+        "without": "Kechgacha Excel",
+        "with": "1 bosishda hisobot"
+      },
+      {
+        "without": "Yig'ilish = 100 imzo, kvartiralarga yugurish",
+        "with": "Yuridik kuchli onlayn ovoz berish"
+      },
+      {
+        "without": "\"Santexnik nima qilayapti?\" — Bilmayman",
+        "with": "Taymer + GPS — hammasi ko'rinadi"
+      },
+      {
+        "without": "Aholilar bilan nizolar",
+        "with": "Shaffoflik = ishonch"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Oddiy tariflar",
+    "popular": "Mashhur",
+    "start": {
+      "name": "Start",
+      "limit": "200 ta kvartiragacha",
+      "price": "500,000",
+      "currency": "so'm/oy",
+      "features": [
+        "Arizalar",
+        "Chatlar",
+        "E'lonlar",
+        "Hisobotlar",
+        "Qo'llab-quvvatlash"
+      ],
+      "cta": "Sinab ko'rish"
+    },
+    "business": {
+      "name": "Biznes",
+      "limit": "1000 ta kvartiragacha",
+      "price": "1,500,000",
+      "currency": "so'm/oy",
+      "features": [
+        "Start dan hammasi",
+        "Yig'ilishlar",
+        "Ilova",
+        "Mehmon QR",
+        "Avto qidirish",
+        "Reytinglar"
+      ],
+      "cta": "Sinab ko'rish"
+    },
+    "premium": {
+      "name": "Premium",
+      "limit": "Chegarasiz",
+      "price": "Kelishuv bo'yicha",
+      "currency": "",
+      "features": [
+        "Biznes dan hammasi",
+        "API",
+        "Integratsiyalar",
+        "Shaxsiy menejer",
+        "Sozlash"
+      ],
+      "cta": "Bog'lanish"
+    },
+    "note1": "Har qanday tarifda 14 kun bepul",
+    "note2": "Sozlash va o'rgatish — bepul"
+  },
+  "faq": {
+    "title": "Tez-tez so'raladigan savollar",
+    "items": [
+      {
+        "question": "Tizimni o'zlashtirish qiyinmi?",
+        "answer": "Yo'q. Interfeys oddiy — 1 soatda o'rgatamiz. Hatto 50+ yoshli xodimlar ham bir kunda o'zlashtirishadi."
+      },
+      {
+        "question": "Excel dan ma'lumotlarni ko'chirish mumkinmi?",
+        "answer": "Ha, ulanganda barcha aholilarni bepul import qilamiz."
+      },
+      {
+        "question": "Internet uzilsa nima bo'ladi?",
+        "answer": "Ma'lumotlar bulutda. Har qanday qurilmadan ishlaydi. Mobil ilova yomon aloqada ham ishlaydi."
+      },
+      {
+        "question": "Ma'lumotlar xavfsizmi?",
+        "answer": "Shifrlash, replikatsiyali serverlar, avtomatik zaxira nusxalar."
+      },
+      {
+        "question": "Elektron ovoz berish yuridik kuchga egami?",
+        "answer": "Ha. OTP-tekshiruv, audit, O'zbekiston qonunchiligiga muvofiq."
+      },
+      {
+        "question": "Mobil ilova bormi?",
+        "answer": "Ha, iOS va Android uchun. Aholilar va xodimlar uchun."
+      },
+      {
+        "question": "Ishga tushirish qancha vaqt oladi?",
+        "answer": "1 dan 3 kungacha. Hamma narsani siz uchun sozlaymiz."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Boshqaruvda tartib o'rnatishga tayyormisiz?",
+    "subtitle": "Ariza qoldiring — 15 daqiqada tizimni ko'rsatamiz",
+    "form": {
+      "name": "Ism",
+      "phone": "Telefon",
+      "houses": "Uylar soni",
+      "submit": "Demo olish"
+    },
+    "or": "yoki to'g'ridan-to'g'ri yozing:",
+    "telegram": "Telegram: @kamizo_uz"
+  },
+  "footer": {
+    "product": "Mahsulot",
+    "company": "Kompaniya",
+    "contacts": "Kontaktlar",
+    "features": "Imkoniyatlar",
+    "pricing": "Tariflar",
+    "faq": "FAQ",
+    "login": "Kirish",
+    "about": "Biz haqimizda",
+    "blog": "Blog",
+    "careers": "Vakansiyalar",
+    "itPark": "IT Park Uzbekistan rezidenti",
+    "rights": "Barcha huquqlar himoyalangan."
+  }
+}
